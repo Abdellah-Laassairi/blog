@@ -1,7 +1,7 @@
 # Site Information
 site_name: Abdellah LAASSAIRI
 site_description: Personal blog and portfolio
-site_url: https://abdellah.blog
+site_url: https://abdellah-laassairi.github.io/blog/
 site_author: Abdellah LAASSAIRI
 repo_url: https://github.com/Abdellah-Laassairi/blog
 repo_name: Abdellah-Laassairi/blog
@@ -21,7 +21,6 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
-  favicon: images/favicon.svg
   custom_dir: docs/overrides
   features:
     - navigation.instant
@@ -77,15 +76,10 @@ plugins:
       minify_css: true
       htmlmin_opts:
         remove_comments: true
-  # - social:
-  #     cards_layout_options:
-  #       background_color: "#0F111A"
-  #       color: "#FFFFFF"
 
-# Highlight.js Configuration
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.0/highlight.min.js
-  - https://unpkg.com/highlightjs-cobol/dist/cobol.min.js # Add any additional language files if needed
+  - https://unpkg.com/highlightjs-cobol/dist/cobol.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/xterm/5.5.0/xterm.js
 
   - https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.js
@@ -93,7 +87,7 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/xterm-addon-search@0.11.0/lib/xterm-addon-search.js
 
   - overrides/terminal.js
-  - overrides/highlight.js # Your custom script to trigger code highlighting after load
+  - overrides/highlight.js
 
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.0/styles/a11y-dark.min.css # Dark mode style

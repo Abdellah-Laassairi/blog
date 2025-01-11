@@ -1,16 +1,14 @@
-// docs/overrides/terminal.js
-
 document.addEventListener("DOMContentLoaded", function() {
-    // Check if terminal element exists
+    // Terminal element initialization
     const terminalElement = document.getElementById("terminal-x");
     if (!terminalElement) return;
 
-    // Initialize required addons
+    // Terminal addons initialization
     const fitAddon = new FitAddon.FitAddon();
     const webLinksAddon = new WebLinksAddon.WebLinksAddon();
     const searchAddon = new SearchAddon.SearchAddon();
 
-    // Initialize terminal with Gruvbox Dark theme (matching your MkDocs theme)
+    // Terminal configuration with Gruvbox Dark theme
     const term = new Terminal({
         theme: {
             background: '#282828',
@@ -34,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
             brightCyan: '#8ec07c',
             brightWhite: '#fbf1c7'
         },
-        fontFamily: '"Roboto Mono", monospace', // Using your configured font
+        fontFamily: '"Roboto Mono", monospace',
         fontSize: 14,
         lineHeight: 1.2,
         cursorBlink: true,
@@ -57,30 +55,99 @@ document.addEventListener("DOMContentLoaded", function() {
     term.open(terminalElement);
     fitAddon.fit();
 
-    // Simulated file system
+    // Virtual filesystem with formatted content
     const fileSystem = {
         'about.md': `# About Abdellah Laassairi
+
 Data Scientist | Machine Learning Engineer
 🌍 Based in France
 
 Focused on creating impactful AI solutions and reducing CO₂ emissions through sustainable technology.`,
         'projects.md': `# Projects
+
 1. Sustainable Construction AI
+   - Machine learning optimization for sustainable building materials
+   - Energy efficiency prediction models
+   - Carbon footprint reduction algorithms
+
 2. Carbon Footprint Optimization
-3. Materials Intelligence Platform`,
-        'contact.md': `# Contact
-- Email: [laassairi.abdellah@gmail](mailto:laassairi.abdellah@gmail)
-- GitHub: [@Abdellah-Laassairi](https://github.com/Abdellah-Laassairi)
-- LinkedIn: [in/abdellah](https://linkedin.com/in/abdellah.laassairi)`,
+   - Real-time emissions monitoring
+   - Predictive maintenance for energy systems
+   - Green energy transition planning
+
+3. Materials Intelligence Platform
+   - Advanced materials database
+   - Property prediction models
+   - Sustainability metrics analysis`,
+        'contact.md': `# Contact Information
+
+- Email: laassairi.abdellah@gmail
+- GitHub: @Abdellah-Laassairi
+- LinkedIn: in/abdellah.laassairi
+
+Available for collaboration on sustainable tech projects.`
     };
 
-    // Command state
+    // Terminal state management
     let commandBuffer = '';
     let commandHistory = [];
     let historyIndex = -1;
     const prompt = '$ ';
 
-    // Welcome message
+    // Text formatting utility functions
+    function formatMarkdownText(text) {
+        const lines = text.split('\n');
+        let formattedLines = [];
+        let inList = false;
+
+        lines.forEach((line, index) => {
+            const trimmedLine = line.trim();
+            
+            // Handle headers
+            if (trimmedLine.startsWith('# ')) {
+                if (index > 0) formattedLines.push('');
+                formattedLines.push('\x1b[1;37m' + trimmedLine.substring(2) + '\x1b[0m');
+                formattedLines.push('');
+                return;
+            }
+
+            // Handle numbered lists
+            if (/^\d+\.\s/.test(trimmedLine)) {
+                if (!inList && index > 0) formattedLines.push('');
+                formattedLines.push(trimmedLine);
+                inList = true;
+                return;
+            }
+
+            // Handle bullet points
+            if (trimmedLine.startsWith('- ')) {
+                if (!inList && index > 0) formattedLines.push('');
+                formattedLines.push(trimmedLine);
+                inList = true;
+                return;
+            }
+
+            // Handle empty lines
+            if (trimmedLine === '') {
+                formattedLines.push('');
+                inList = false;
+                return;
+            }
+
+            // Handle regular text
+            if (trimmedLine) {
+                if (inList) {
+                    formattedLines.push('  ' + trimmedLine);
+                } else {
+                    formattedLines.push(trimmedLine);
+                }
+            }
+        });
+
+        return formattedLines;
+    }
+
+    // Welcome message display
     function displayWelcome() {
         term.writeln('\x1b[1;32m╭───────────────────────────────────────────╮');
         term.writeln('│  Beep Boop! 🤖 Welcome human !              │');
@@ -89,19 +156,36 @@ Focused on creating impactful AI solutions and reducing CO₂ emissions through 
         term.write(prompt);
     }
 
+    // Initialize terminal display
     displayWelcome();
 
-    // Handle window resize
+    // Window resize handler
     window.addEventListener('resize', () => {
         fitAddon.fit();
     });
 
-    // Input handling
+    // Input handler
     term.onKey(({ key, domEvent }) => {
         const printable = !domEvent.altKey && !domEvent.ctrlKey && !domEvent.metaKey;
 
         if (domEvent.keyCode === 13) { // Enter
-            handleCommand();
+            const currentCommand = commandBuffer;
+            if (currentCommand.toLowerCase() === 'clear') {
+                term.write('\r\n');
+                processCommand(currentCommand);
+                commandHistory.push(currentCommand);
+                historyIndex = commandHistory.length;
+                commandBuffer = '';
+            } else {
+                term.write('\r\n');
+                if (currentCommand.trim()) {
+                    commandHistory.push(currentCommand);
+                    historyIndex = commandHistory.length;
+                    processCommand(currentCommand);
+                }
+                commandBuffer = '';
+                term.write(prompt);
+            }
         } else if (domEvent.keyCode === 8) { // Backspace
             if (commandBuffer.length > 0) {
                 commandBuffer = commandBuffer.slice(0, -1);
@@ -117,20 +201,7 @@ Focused on creating impactful AI solutions and reducing CO₂ emissions through 
         }
     });
 
-    function handleCommand() {
-        term.writeln('');
-        const command = commandBuffer.trim();
-        
-        if (command) {
-            commandHistory.push(command);
-            historyIndex = commandHistory.length;
-            processCommand(command);
-        }
-        
-        commandBuffer = '';
-        term.write(prompt);
-    }
-
+    // History navigation
     function navigateHistory(direction) {
         if (direction === 'up' && historyIndex > 0) {
             historyIndex--;
@@ -148,6 +219,7 @@ Focused on creating impactful AI solutions and reducing CO₂ emissions through 
         }
     }
 
+    // Command processor
     function processCommand(command) {
         const args = command.split(' ');
         const cmd = args[0].toLowerCase();
@@ -172,7 +244,8 @@ Focused on creating impactful AI solutions and reducing CO₂ emissions through 
                 if (!filename) {
                     term.writeln('\x1b[1;31mError: Please specify a file\x1b[0m');
                 } else if (fileSystem[filename]) {
-                    term.writeln(fileSystem[filename]);
+                    const formattedLines = formatMarkdownText(fileSystem[filename]);
+                    formattedLines.forEach(line => term.writeln(line));
                 } else {
                     term.writeln(`\x1b[1;31mError: ${filename}: No such file\x1b[0m`);
                 }
@@ -181,18 +254,21 @@ Focused on creating impactful AI solutions and reducing CO₂ emissions through 
             case 'clear':
                 term.clear();
                 displayWelcome();
-                return;
+                break;
 
             case 'contact':
-                term.writeln(fileSystem['contact.md']);
+                const formattedContact = formatMarkdownText(fileSystem['contact.md']);
+                formattedContact.forEach(line => term.writeln(line));
                 break;
 
             case 'projects':
-                term.writeln(fileSystem['projects.md']);
+                const formattedProjects = formatMarkdownText(fileSystem['projects.md']);
+                formattedProjects.forEach(line => term.writeln(line));
                 break;
 
             case 'about':
-                term.writeln(fileSystem['about.md']);
+                const formattedAbout = formatMarkdownText(fileSystem['about.md']);
+                formattedAbout.forEach(line => term.writeln(line));
                 break;
 
             default:
@@ -201,7 +277,7 @@ Focused on creating impactful AI solutions and reducing CO₂ emissions through 
         }
     }
 
-    // Handle terminal resize
+    // Terminal resize observer
     new ResizeObserver(() => {
         fitAddon.fit();
     }).observe(terminalElement);
