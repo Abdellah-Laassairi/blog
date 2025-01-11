@@ -1,0 +1,167 @@
+/* docs/overrides/terminal.css */
+
+/* Terminal container */
+#terminal-x {
+    width: 100%;
+    height: 500px;
+    margin: 2rem auto;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    background-color: #282828;
+    font-variant-ligatures: none;
+    border: 2px solid #d79921;
+    box-shadow: 0 4px 6px -1px rgba(255, 123, 0, 0.1),
+        0 2px 4px -1px rgba(255, 123, 0, 0.06);
+    transition: all 0.3s ease-in-out;
+}
+
+#terminal-x:hover {
+    border-color: #ff7b00;
+    box-shadow: 0 6px 8px -2px rgba(255, 95, 0, 0.15),
+        0 3px 6px -2px rgba(255, 95, 0, 0.1);
+}
+
+/* Terminal header with controls */
+.terminal-header {
+    background-color: #3c3836;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #504945;
+    user-select: none;
+}
+
+/* Terminal content area */
+.terminal-content {
+    height: calc(100% - 3rem);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Terminal text container */
+.xterm {
+    padding: 0.5rem;
+    height: 100%;
+}
+
+/* Ensure proper text wrapping and overflow handling */
+.xterm-screen {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.xterm-text-layer {
+    font-feature-settings: "liga" 0;
+    text-rendering: optimizeLegibility;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    text-align: left;
+    padding: 0 1rem;
+    line-height: 1.5;
+}
+
+/* Enhanced scrollbar styling */
+.xterm-viewport {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.xterm-viewport::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.xterm-viewport::-webkit-scrollbar-track {
+    background: rgba(60, 56, 54, 0.3);
+    border-radius: 8px;
+    margin: 4px;
+}
+
+.xterm-viewport::-webkit-scrollbar-thumb {
+    background: rgba(80, 73, 69, 0.8);
+    border-radius: 8px;
+    border: 1px solid rgba(60, 56, 54, 0.2);
+    transition: background-color 0.2s ease;
+}
+
+.xterm-viewport::-webkit-scrollbar-thumb:hover {
+    background: rgba(102, 92, 84, 0.9);
+}
+
+/* Firefox scrollbar compatibility */
+.xterm-viewport {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(80, 73, 69, 0.8) rgba(60, 56, 54, 0.3);
+}
+
+/* Selection styling */
+.xterm-selection {
+    opacity: 0.3;
+    background-color: #504945;
+    border-radius: 2px;
+}
+
+/* Cursor styling */
+.xterm-cursor {
+    background-color: #d79921;
+    border-color: #d79921;
+    transition: opacity 0.15s ease-in-out;
+}
+
+.xterm-cursor-blink {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #terminal-x {
+        height: 400px;
+        margin: 1rem 0;
+        border-radius: 6px;
+    }
+
+    .terminal-header {
+        padding: 0.5rem;
+    }
+}
+
+/* Material theme integration */
+.md-typeset #terminal-x {
+    max-width: 100%;
+    margin: 1.5rem 0;
+}
+
+/* Dark mode adjustments */
+[data-md-color-scheme="slate"] #terminal-x {
+    border-color: rgba(80, 73, 69, 0.4);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+        0 2px 4px -1px rgba(0, 0, 0, 0.15);
+}
+
+/* Ensure terminal fits within content width */
+.md-content__inner {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Focus state */
+#terminal-x:focus-within {
+    border-color: #d79921;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(215, 153, 33, 0.2);
+}

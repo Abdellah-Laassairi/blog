@@ -9,7 +9,7 @@ repo_name: Abdellah-Laassairi/blog
 # Navigation
 nav:
   - Home: index.md
-  # - Blog: blog/index.md
+  - Blog: blog/index.md
   # - Projects: projects.md
   # - About: about.md
   # - Contact: contact.md
@@ -60,6 +60,13 @@ markdown_extensions:
 
 # Plugins
 plugins:
+  - termynal:
+      title: bash
+      buttons: macos
+      prompt_literal_start:
+        - "$"
+        - ">"
+
   - search:
       separator: '[\s\-\.]+'
       lang:
@@ -79,7 +86,16 @@ plugins:
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.0/highlight.min.js
   - https://unpkg.com/highlightjs-cobol/dist/cobol.min.js # Add any additional language files if needed
+  - https://cdnjs.cloudflare.com/ajax/libs/xterm/5.5.0/xterm.js
+
+  - https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.js
+  - https://cdn.jsdelivr.net/npm/xterm-addon-web-links@0.8.0/lib/xterm-addon-web-links.js
+  - https://cdn.jsdelivr.net/npm/xterm-addon-search@0.11.0/lib/xterm-addon-search.js
+
+  - overrides/terminal.js
   - overrides/highlight.js # Your custom script to trigger code highlighting after load
 
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.0/styles/a11y-dark.min.css # Dark mode style
+  - https://cdnjs.cloudflare.com/ajax/libs/xterm/5.5.0/xterm.css # Dark mode style
+  - overrides/terminal.css
