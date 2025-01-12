@@ -10,9 +10,6 @@ repo_name: Abdellah-Laassairi/blog
 nav:
   - Home: index.md
   - Blog: blog/index.md
-  # - Projects: projects.md
-  # - About: about.md
-  # - Contact: contact.md
 
 # Theme Configuration
 theme:
@@ -59,13 +56,6 @@ markdown_extensions:
 
 # Plugins
 plugins:
-  - termynal:
-      title: bash
-      buttons: macos
-      prompt_literal_start:
-        - "$"
-        - ">"
-
   - search:
       separator: '[\s\-\.]+'
       lang:
@@ -77,19 +67,22 @@ plugins:
       htmlmin_opts:
         remove_comments: true
 
-extra_javascript:
-  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.0/highlight.min.js
-  - https://unpkg.com/highlightjs-cobol/dist/cobol.min.js
-  - https://cdnjs.cloudflare.com/ajax/libs/xterm/5.5.0/xterm.js
-
-  - https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.js
-  - https://cdn.jsdelivr.net/npm/xterm-addon-web-links@0.8.0/lib/xterm-addon-web-links.js
-  - https://cdn.jsdelivr.net/npm/xterm-addon-search@0.11.0/lib/xterm-addon-search.js
-
-  - overrides/terminal.js
-  - overrides/highlight.js
-
 extra_css:
-  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.0/styles/a11y-dark.min.css # Dark mode style
-  - https://cdnjs.cloudflare.com/ajax/libs/xterm/5.5.0/xterm.css # Dark mode style
-  - overrides/terminal.css
+  - terminal/terminal.css
+  - https://cdn.jsdelivr.net/npm/xterm@5.1.0/css/xterm.min.css
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/xterm@5.1.0/lib/xterm.min.js
+  - https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
+  - https://cdn.jsdelivr.net/npm/xterm-addon-web-links@0.8.0/lib/xterm-addon-web-links.min.js
+  - https://cdn.jsdelivr.net/npm/xterm-addon-search@0.11.0/lib/xterm-addon-search.min.js
+
+  - terminal/terminal.js
+  - terminal/config/terminal-config.js
+  - terminal/data/fileSystem.js
+
+  - terminal/config/chat-config.js
+  - terminal/services/ChatService.js
+
+  - terminal/utils/TextBuffer.js
+  - terminal/services/CommandProcessor.js
