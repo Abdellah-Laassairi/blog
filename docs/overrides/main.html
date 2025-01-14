@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+
+
+{% block extrahead %}
+    {{ super() }}
+    <script src="{{ base_url }}/js/transformers-init.js" type="module" defer></script>
+{% endblock %}
