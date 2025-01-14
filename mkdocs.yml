@@ -9,7 +9,7 @@ repo_name: Abdellah-Laassairi/blog
 # Navigation
 nav:
   - Home: index.md
-  - Blog: blog/index.md
+  # - Blog: blog/index.md
 
 # Theme Configuration
 theme:
@@ -72,17 +72,21 @@ extra_css:
   - https://cdn.jsdelivr.net/npm/xterm@5.1.0/css/xterm.min.css
 
 extra_javascript:
+  # External dependencies
   - https://cdn.jsdelivr.net/npm/xterm@5.1.0/lib/xterm.min.js
   - https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
   - https://cdn.jsdelivr.net/npm/xterm-addon-web-links@0.8.0/lib/xterm-addon-web-links.min.js
   - https://cdn.jsdelivr.net/npm/xterm-addon-search@0.11.0/lib/xterm-addon-search.min.js
 
+  # Main terminal initialization
   - terminal/terminal.js
+
+  # Terminal core and configuration
   - terminal/config/terminal-config.js
-  - terminal/data/fileSystem.js
-
   - terminal/config/chat-config.js
-  - terminal/services/ChatService.js
 
+  # Terminal utilities and services
   - terminal/utils/TextBuffer.js
+  - terminal/data/fileSystem.js
+  - terminal/services/ChatService.js
   - terminal/services/CommandProcessor.js
