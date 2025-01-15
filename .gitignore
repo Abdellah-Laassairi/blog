@@ -1,5 +1,7 @@
 /.quarto/
 /_site/
+.pub_blog_temp/
+.pub_min_cache/
 site/
 .vscode
 .env
