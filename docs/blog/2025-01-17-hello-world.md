@@ -1,7 +1,7 @@
 ---
 title: Hello World!
 date: 2025-01-17 20:14:08
-published: true
+publish: true
 description: "Welcome to my first blog post! I'm excited to start sharing my thoughts and experiences with you."
 tags:
   - technology
@@ -19,11 +19,11 @@ I created this blog to share my journey in software engineering, discuss interes
 
 ## What to Expect
 
-In this blog, you can expect:
+You can expect posts about:
 
-- Technical deep dives
-- Project walkthroughs
-- Learning resources
-- Tips and best practices
+- Software development best practices
+- Technical tutorials and guides
+- Problem-solving approaches
+- Learning resources and tips
 
-Stay tuned for more content!
+Feel free to reach out to me at <a href="mailto:Laassairi.abdellah@gmail.com">Laassairi.abdellah@gmail.com</a> with any questions or suggestions!

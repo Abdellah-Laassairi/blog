@@ -9,7 +9,7 @@ repo_name: Abdellah-Laassairi/blog
 # Navigation
 nav:
   - Home: index.md
-  - Blog: blog/
+  - Blog: blog/index.md
   - About: about.md
 
 # Theme Configuration
@@ -61,7 +61,7 @@ plugins:
       teaser_marker: "<!-- more -->"
       searchable_non_posts: false
       posts_per_page: 7
-      slug: blog
+      slug: posts
   - pub-social
   - search:
       separator: '[\s\-\.]+'

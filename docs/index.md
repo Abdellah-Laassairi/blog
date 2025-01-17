@@ -61,8 +61,8 @@ $ echo "Let's connect & build something amazing together!"
 
 I’m always eager to collaborate, share ideas, and learn from others in the field. Here’s how you can reach me:
 
-- **Email**: [Laassairi.abdellah@gmail.com](mailto:Laassairi.abdellah@gmail.com)
+- **Email**: <a href="mailto:laassairi.abdellah@gmail.com">laassairi.abdellah@gmail.com</a>
 - **Dev.to**: [@abdellahlaassairi](https://dev.to/abdellahlaassairi)
 - **HackerRank**: [laassairi_abdel](https://www.hackerrank.com/laassairi_abdel)
 
-> **Tip**: Visit my [Blog](/blog) to explore more!
+> **Tip**: Take a look at the published posts in my [Blog](/blog/) to explore more!
