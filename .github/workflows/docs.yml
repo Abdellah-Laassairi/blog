@@ -25,5 +25,5 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install termynal mkdocs mkdocs-minify-plugin mkdocs-material mkdocs-terminal
+      - run: pip install termynal mkdocs mkdocs-minify-plugin mkdocs-material mkdocs-terminal mkdocs-publisher
       - run: mkdocs gh-deploy --force
