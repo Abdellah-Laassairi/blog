@@ -2,12 +2,14 @@
 title: Hello World!
 date: 2025-01-17 20:14:08
 publish: true
+slug: 2025-01-17-hello-world
 description: "Welcome to my first blog post! I'm excited to start sharing my thoughts and experiences with you."
 tags:
   - technology
   - software
   - development
 ---
+# Hello World!
 
 Welcome to my first blog post! I'm excited to start sharing my thoughts and experiences with you & only you 😊.
 

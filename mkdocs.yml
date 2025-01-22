@@ -21,7 +21,6 @@ theme:
     code: Roboto Mono
   custom_dir: docs/overrides
   features:
-    - navigation.instant
     - navigation.tracking
     - navigation.tabs
     - navigation.sections
@@ -61,7 +60,6 @@ plugins:
       teaser_marker: "<!-- more -->"
       searchable_non_posts: false
       posts_per_page: 7
-      slug: posts
   - pub-social
   - search:
       separator: '[\s\-\.]+'
