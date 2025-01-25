@@ -363,14 +363,30 @@ window.TerminalApp.CommandProcessor = class CommandProcessor {
         }
 
         this.isChatMode = true;
-        const chatService = new window.TerminalApp.ChatService(
-            window.TerminalApp.TERMINAL_CONFIG,
-            window.TerminalApp.terminal
-        );
-        window.TerminalApp.chatService = chatService;
+        
+        // Only create a new chat service if one doesn't exist
+        if (!window.TerminalApp.chatService) {
+            window.TerminalApp.chatService = new window.TerminalApp.ChatService(
+                window.TerminalApp.TERMINAL_CONFIG,
+                window.TerminalApp.terminal
+            );
+        }
 
         TerminalApp.write('\x1b[1;32mEntering chat mode. Type "exit" to leave chat mode.\x1b[0m\n');
         TerminalApp.write('Loading AI model, please wait...\n');
+        
+        try {
+            // Wait for model initialization if not already initialized
+            if (!window.transformersHelper.modelReady) {
+                await window.transformersHelper.initialize();
+            }
+            TerminalApp.write('\x1b[1;32mModel initialized successfully!\x1b[0m\n');
+            TerminalApp.write(TerminalApp.CHAT_PROMPT);
+        } catch (error) {
+            console.error('Failed to initialize model:', error);
+            TerminalApp.write('\x1b[1;31mError: Failed to initialize AI model. Please try again later.\x1b[0m\n');
+            this.isChatMode = false;
+        }
     }
 
     async exitChat() {

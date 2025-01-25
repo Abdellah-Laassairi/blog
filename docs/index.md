@@ -5,12 +5,9 @@ description: "I'm a passionate Data Scientist and Machine Learning Engineer base
 
 # 👋 About Me
 
-Greetings! I’m **Abdellah Laassairi**, a curious and driven
-**Data Scientist** and **Machine Learning Engineer** from
-**🇫🇷 France**. My journey through **Computer Science** and
-**Applied Mathematics** laid the foundation for a passion to
-push the boundaries of what’s possible with AI.
-
+Hey there! I’m **Abdellah Laassairi**, a 
+**Data Scientist** and **Machine Learning Engineer** Based in
+**🇫🇷 France**. This website is a collection of my thoughts, ideas, and projects.  
 <div id="terminal-x"></div>
 
 ---
