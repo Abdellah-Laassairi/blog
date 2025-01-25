@@ -18,7 +18,7 @@ tags:
 
 For a lot of developers, software engineers, and data scientists, Jira can feel like that well-meaning but slightly overbearing relative who always shows up at the most inconvenient time.
 
-<img src="/blog/img/blog/jira-sin.png" alt="Jira Notification" style="border-radius: 10px;">
+<img src="/blog/img/blog/jira/jira-sin.png" alt="Jira Notification" style="border-radius: 10px;">
 
 Don't get me wrong, Jira is *essential*.  It's the backbone of project management, the conductor of the development orchestra, the... uh...  digital filing cabinet of tasks?  Okay, you get my point. 
 
