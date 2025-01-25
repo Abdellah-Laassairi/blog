@@ -6,15 +6,17 @@ description: "I'm a passionate Data Scientist and Machine Learning Engineer base
 # 👋 About Me
 
 Hey there! I’m **Abdellah Laassairi**, a 
-**Data Scientist** and **Machine Learning Engineer** Based in
-**🇫🇷 France**. This website is a collection of my thoughts, ideas, and projects.  
+**Data Scientist** and **Machine Learning Engineer** based in
+**🇫🇷 France**. You can talk to my AI Dopplganger below if you want to know more about me. 
+If he doesn't answer, then he's probably taking a nap.
 <div id="terminal-x"></div>
 
 ---
 
-I am proud to be part of **Oris Materials Intelligence**, where we are on a mission to revolutionize infrastructure sustainability. By harnessing the power of **AI and data analytics**, we enable industries to make smarter material choices that significantly reduce their **CO₂ emissions** — building a better, greener future for all.
+In case Abdellah v0.0.1 is down, I'll introduce myself the old fashioned way : 
+I'm currently working at **Oris Materials Intelligence**, where we are on a mission to revolutionize infrastructure sustainability. By harnessing the power of **AI and data analytics**, we enable industries to make smarter material choices that significantly reduce their **CO₂ emissions** — building a better, greener future for all.
 
-My expertise lies in harnessing the power of **Machine Learning**, **Deep Learning**, and **MLOps** to design systems that are as impactful as they are scalable. With a special interest in **AGI**, I’m fascinated by the transformative potential AI holds in unlocking new frontiers—both on Earth and beyond.
+My expertise lies in harnessing the power of **Machine Learning**, **Deep Learning**, and **MLOps** to design systems that are as impactful as they are scalable. With a special interest in **AGI**, I’m fascinated by the transformative potential AI holds in unlocking new future for our species and planet.
 
 ---
 
@@ -22,11 +24,11 @@ My expertise lies in harnessing the power of **Machine Learning**, **Deep Learni
 
 Here’s a glimpse at the technologies and tools I use to make ideas come alive:
 
-- **Programming Languages**: Python, R, SQL, Julia
+- **Programming Languages**: Python,C++, R
 - **Frameworks & Libraries**: PyTorch, Scikit-Learn, Jax, Hugging Face
-- **DevOps & MLOps**: Docker, Kubernetes, MLflow, Airflow, Terraform
-- **Cloud Platforms**: AWS, GCP, Azure
-- **Other Tools**: Git, Jupyter, Tableau
+- **DevOps & MLOps**: Docker, Kubernetes, MLflow, Airflow
+- **Cloud Platforms**: AWS 
+- **Other Tools**: Git, Jupyter
 
 ---
 
