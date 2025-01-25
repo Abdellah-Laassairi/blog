@@ -9,11 +9,12 @@ tags:
   - software
   - development
 ---
-# Hello World!
+<!-- more -->
 
+
+## Hello World!
 Welcome to my first blog post! I'm excited to start sharing my thoughts and experiences with you & only you 😊.
 
-<!-- more -->
 
 ## Why I Started This Blog
 
