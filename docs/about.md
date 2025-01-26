@@ -1,11 +1,11 @@
 # About Me
 
-I'm Abdellah LAASSAIRI, a passionate software engineer with expertise in various technologies and domains. This blog serves as a platform for me to share my knowledge, experiences, and insights with the community.
+I'm Abdellah LAASSAIRI, a passionate data scientist / machine learning engineer with expertise in various technologies and domains. This blog serves as a platform for me to share my knowledge, experiences, and insights with the community.
 
 ## Skills & Expertise
 
 - Software Engineering
-- Web Development
+- Applied Mathematics
 - Machine Learning
 - Cloud Computing
 - DevOps
@@ -19,4 +19,4 @@ Feel free to reach out to me through:
 
 ## About This Blog
 
-This blog is built using MkDocs with the Material theme. Here, I share technical articles, tutorials, and my thoughts on various technology-related topics.
+This blog is built using MkDocs with the Terminal theme. Here, I share technical articles, tutorials, and my thoughts on various technology-related topics.

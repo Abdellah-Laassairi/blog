@@ -5,13 +5,13 @@ description: "I'm a passionate Data Scientist and Machine Learning Engineer base
 
 # 👋 About Me
 
-Hey there! I’m **Abdellah Laassairi**, a 
+Hey there! I’m **Abdellah Laassairi**, a
 **Data Scientist** and **Machine Learning Engineer** based in
-**🇫🇷 France**. You can talk to my AI Dopplganger below if you want to know more about me. 
+**🇫🇷 France**. You can talk to my AI Dopplganger below if you want to know more about me.
 If he doesn't answer, then he's probably taking a nap.
 <div id="terminal-x"></div>
 
-In case Abdellah v0.0.1 is down (as the lil lazy ai he is), you can take a look at the following sections to learn more about me.
+In case Abdellah v0.0.1 is down (as the lil lazy AI he is), you can take a look at the following sections to learn more about me.
 
 ---
 
@@ -28,7 +28,7 @@ Here’s a glimpse at the technologies and tools I use to make ideas come alive:
 - **Programming Languages**: Python,C++, R
 - **Frameworks & Libraries**: PyTorch, Scikit-Learn, Jax, Hugging Face
 - **DevOps & MLOps**: Docker, Kubernetes, MLflow, Airflow
-- **Cloud Platforms**: AWS 
+- **Cloud Platforms**: AWS
 - **Other Tools**: Git, Jupyter
 
 ---
