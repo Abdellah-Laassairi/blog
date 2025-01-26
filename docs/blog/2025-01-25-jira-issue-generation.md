@@ -29,6 +29,7 @@ Don't get me wrong, Jira is *essential*.  It's the backbone of project managemen
 
 But here's the thing:  while Jira is essential for *organization*, it can feel like it was specifically designed to slow down *development*.  We're in our happy place with our favorite IDE open, knee-deep in Python or whatever programming language or stack you're using and then *BAM!* You forgot to create a Jira ticket for this new feature / task that you're already half way through. Now you're clicking through endless menus, copying and pasting issue keys, manually updating your issue description and scope, finding the right template, project to attach, etc.
 
+---
 
 ## The Programmer's dilemma
 
@@ -53,6 +54,7 @@ As programmers, software engineers, and data scientists, our brains are wired fo
 
 **Alright, Spill the Beans! How Do I Wield This `jiragen` Magic?** 🤔
 Good question!  Getting started with `jiragen` is simpler than explaining the nuances of gradient boosting to your non-technical relatives at Thanksgiving dinner.  (Seriously, stick to "I work with computers" – trust me on this one.)
+---
 
 ## Installation: The First Step to Jira Freedom
 
@@ -160,7 +162,6 @@ If you're tired of the Jira drudgery and want to inject some automation awesomen
 
 -   **Check out the documentation:** [here](https://abdellah-laassairi.github.io/jiragen/) for more detailed usage instructions and API reference.
 
-Let's make Jira work *for* us, not against us.  Let's automate the boring stuff, reclaim our precious time, and get back to the exciting world of data!
 ---
 
 *Want to contribute or report issues? Check out our [GitHub repository](https://github.com/Abdellah-Laassairi/jiragen)!*

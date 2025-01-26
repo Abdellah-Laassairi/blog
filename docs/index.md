@@ -53,15 +53,6 @@ Did you know? I believe that coding is just like music — structured, creative,
 
 ## 📬 Let’s Stay Connected!
 
-<!-- termynal -->
-
-# Installation Guide
-
-## Quick Start
-
-
-
-
 ```bash
 $ echo "Let's connect & build something amazing together!"
 ```
