@@ -2,7 +2,16 @@
 
 {% block extrahead %}
    {{ super() }}
+   <link rel="stylesheet" href="{{ base_url }}/terminal/terminal.css">
+   <script src="{{ base_url }}/terminal/terminal.js" type="module" defer></script>
    <script src="{{ base_url }}/terminal/services/transformers-helper.js" type="module" defer></script>
+   <script src="{{ base_url }}/terminal/services/CommandProcessor.js" type="module" defer></script>
+   <script src="{{ base_url }}/terminal/services/ChatService.js" type="module" defer></script>
+   <script src="{{ base_url }}/terminal/config/chat-config.js" type="module" defer></script>
+   <script src="{{ base_url }}/terminal/config/terminal-config.js" type="module" defer></script>
+   <script src="{{ base_url }}/terminal/data/fileSystem.js" type="module" defer></script>
+   <script src="{{ base_url }}/terminal/utils/TextBuffer.js" type="module" defer></script>
+
    {%- if page and page.meta and page.meta.hide -%}
    {%- if "side_nav" in page.meta.hide -%}
    <style>

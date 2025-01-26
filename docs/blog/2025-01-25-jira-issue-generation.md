@@ -23,11 +23,11 @@ hide:
 
 For a lot of developers, software engineers, and data scientists, Jira can feel like that well-meaning but slightly overbearing relative who always shows up at the most inconvenient time.
 
-<img src="/blog/img/blog/jira/jira-sin.png" alt="Jira Notification" style="border-radius: 10px;">
+<img src="/blog/img/posts/jira/jira-sin.png" alt="Jira Notification" style="border-radius: 10px;">
 
-Don't get me wrong, Jira is *essential*.  It's the backbone of project management, the conductor of the development orchestra, the... uh...  digital filing cabinet of tasks?  Okay, you get my point. 
+Don't get me wrong, Jira is *essential*.  It's the backbone of project management, the conductor of the development orchestra, the... uh...  digital filing cabinet of tasks?  Okay, you get my point.
 
-But here's the thing:  while Jira is essential for *organization*, it can feel like it was specifically designed to slow down *development*.  We're in our happy place with our favorite IDE open, knee-deep in Python, coaxing insights from mountains of data, and then *BAM!* You forgot to create a Jira ticket for this new feature / task that you're already half way through. Now you're clicking through endless menus, copying and pasting issue keys, manually updating your issue description and scope, finding the right template, project to attach, etc. 
+But here's the thing:  while Jira is essential for *organization*, it can feel like it was specifically designed to slow down *development*.  We're in our happy place with our favorite IDE open, knee-deep in Python, coaxing insights from mountains of data, and then *BAM!* You forgot to create a Jira ticket for this new feature / task that you're already half way through. Now you're clicking through endless menus, copying and pasting issue keys, manually updating your issue description and scope, finding the right template, project to attach, etc.
 
 
 
