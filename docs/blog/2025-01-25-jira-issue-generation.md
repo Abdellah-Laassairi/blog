@@ -10,6 +10,11 @@ tags:
   - development
   - jira
   - data science
+hide:
+    - revision_date
+    - revision_history
+    - side_toc
+    - side_nav
 ---
 
 <!-- more -->
@@ -26,7 +31,7 @@ But here's the thing:  while Jira is essential for *organization*, it can feel l
 
 
 
-**The Data Scientist's Jira Lament (aka "Why is this taking so long?")**
+## The Data Scientist's Jira Lament (aka "Why is this taking so long?")
 
 
 As programmers, software engineers, and data scientists, our brains are wired for efficiency, for automation, for making computers do the tedious stuff so we can focus on the *interesting* stuff.  Jira, in its default, manual-task-loving state, often feels like the antithesis of everything we stand for.  Our typical Jira-induced woes include:
@@ -44,7 +49,7 @@ he Copy-Paste Tango: Your model completes a 12-hour training run. Celebration! N
 *   **Jira Data Extraction: The CSV Black Hole:**  "Oh, you want to analyze Jira data?  Sure, here's a CSV with 73 columns, 68 of which are completely irrelevant, and the 5 you actually need are buried somewhere in a JSON blob within a text field.  Enjoy!" 😈
 
 
-**Enough is Enough!  Enter `jiragen`!** ✨
+## Enough is Enough!  Enter `jiragen`! ✨
 
 
 `jiragen` is your friendly AI sidekick who'd love to write your own Jira tickets for you.  It's designed to make your life easier by:
@@ -61,7 +66,7 @@ he Copy-Paste Tango: Your model completes a 12-hour training run. Celebration! N
 
 Excellent question!  Getting started with `jiragen` is simpler than explaining the nuances of gradient boosting to your non-technical relatives at Thanksgiving dinner.  (Seriously, stick to "I work with computers" – trust me on this one.)
 
-**Installation: The First Step to Jira Freedom**
+## Installation: The First Step to Jira Freedom
 
 If you're reading this, you probably breathe Python.  So, installation will be a breeze:
 
@@ -85,13 +90,13 @@ api_token: "your_jira_api_token" # Keep this secret!
 ```
 
 
-**Basic Usage (CLI Awesomeness):  Command-Line Kung Fu for Jira Ninjas**
+## Basic Usage (CLI Awesomeness):  Command-Line Kung Fu for Jira Ninjas
 
 Once installed and configured, `jiragen` is ready to rock your Jira world from the command line.  Here's a taste of the CLI magic:
 
 
 
-**The Magic of `jiragen` Commands:**
+## The Magic of `jiragen` Commands:
 
 
 Once you've got your configuration sorted, you're ready to start unleashing the power of `jiragen`!  Here are some of the commands you can use:
@@ -99,7 +104,7 @@ Once you've got your configuration sorted, you're ready to start unleashing the 
 
 (For more detailed usage and a deep dive into the Python API, check out the documentation – link coming soon!  I promise it's more exciting than it sounds... okay, maybe not *exciting*, but definitely *useful*!)
 
-**Join the `jiragen` Revolution! ✊**
+## Join the `jiragen` Revolution! ✊
 
 `jiragen` is still evolving, like a baby neural network learning to recognize cats (but for Jira automation).  I'm constantly working on making it even better, more powerful, and even more... well, less painful to use with Jira.
 

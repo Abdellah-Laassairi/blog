@@ -8,11 +8,17 @@ tags:
   - technology
   - software
   - development
+hide:
+    - revision_date
+    - revision_history
+    - side_toc
+    - top_nav
+    - side_nav
 ---
 <!-- more -->
 
 
-## Hello World!
+# Hello World!
 Welcome to my first blog post! I'm excited to start sharing my thoughts and experiences with you & only you 😊.
 
 
