@@ -5,3 +5,5 @@
 site/
 .vscode
 .env
+*.onnx
+docs/terminal/models/
