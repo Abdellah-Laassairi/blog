@@ -11,9 +11,10 @@ Hey there! I’m **Abdellah Laassairi**, a
 If he doesn't answer, then he's probably taking a nap.
 <div id="terminal-x"></div>
 
+In case Abdellah v0.0.1 is down (as the lil lazy ai he is), you can take a look at the following sections to learn more about me.
+
 ---
 
-In case Abdellah v0.0.1 is down, I'll introduce myself the old fashioned way : 
 I'm currently working at **Oris Materials Intelligence**, where we are on a mission to revolutionize infrastructure sustainability. By harnessing the power of **AI and data analytics**, we enable industries to make smarter material choices that significantly reduce their **CO₂ emissions** — building a better, greener future for all.
 
 My expertise lies in harnessing the power of **Machine Learning**, **Deep Learning**, and **MLOps** to design systems that are as impactful as they are scalable. With a special interest in **AGI**, I’m fascinated by the transformative potential AI holds in unlocking new future for our species and planet.
