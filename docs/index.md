@@ -55,8 +55,24 @@ Did you know? I believe that coding is just like music — structured, creative,
 
 <!-- termynal -->
 
-```shell
+# Installation Guide
+
+## Quick Start
+
+
+
+
+```bash
 $ echo "Let's connect & build something amazing together!"
+```
+Leaving a hello world for good luck :
+
+```python
+import numpy as np  # this import is also part of the ritual
+
+
+def hello_world():
+    print("Hello, World!")
 ```
 
 I’m always eager to collaborate, share ideas, and learn from others in the field. Here’s how you can reach me:
