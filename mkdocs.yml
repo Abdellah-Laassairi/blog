@@ -67,7 +67,6 @@ plugins:
         - en
 
 extra_css:
-  - terminal/terminal.css
   - https://cdn.jsdelivr.net/npm/xterm@5.1.0/css/xterm.min.css
 
 extra_javascript:
