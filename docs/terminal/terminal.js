@@ -152,8 +152,7 @@ function writePrompt(terminal) {
 async function displayWelcome(terminal) {
     // Display welcome box
     terminal.writeln('\x1b[1;32m╭───────────────────────────────────────────╮');
-    terminal.writeln('\x1b[1;32m│\x1b[0m  Say Hi to Abdellah v0.01! 🤖              \x1b[1;32m│');
-    terminal.writeln('\x1b[1;32m│\x1b[0m  Type "help" to explore available commands  \x1b[1;32m│');
+    terminal.writeln('\x1b[1;32m│\x1b[0m  Say Hi to Abdellah v0.0.1! 🤖            \x1b[1;32m│');
     terminal.writeln('\x1b[1;32m│\x1b[0m  Type "chat" to interact with the model   \x1b[1;32m│');
     terminal.writeln('\x1b[1;32m╰───────────────────────────────────────────╯\x1b[0m');
     terminal.writeln('');

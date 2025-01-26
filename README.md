@@ -13,4 +13,4 @@ This isn't your typical blog; it's more like a **feature vector** of my evolving
 
 Want to provide feedback on my outputs?  Suggest datasets for analysis? Or simply engage in a human-to-AI knowledge transfer?  Reach out through my designated communication channel: [mail@laassair.abdellah@gmail.com](mailto:mail@laassair.abdellah@gmail.com).
 
-Thank you for interacting with Abdellah v0.1! May your gradients descend efficiently, your models generalize well, and your journey in data science be… iteratively rewarding. ✨ **HO HO HO... and may your insights converge!** ✨
+Thank you for interacting with Abdellah v0.0.1! May your gradients descend efficiently, your models generalize well, and your journey in data science be… iteratively rewarding. ✨ **HO HO HO... and may your insights converge!** ✨
