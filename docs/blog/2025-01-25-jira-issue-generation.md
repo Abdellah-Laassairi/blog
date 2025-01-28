@@ -25,16 +25,13 @@ For a lot of developers, software engineers, and data scientists, Jira can feel 
 
 <img src="/blog/img/posts/jira/jira-sin.png" alt="Jira Notification" style="border-radius: 10px;">
 
-Don't get me wrong, Jira is *essential*.  It's the backbone of project management, the conductor of the development orchestra, the... uh...  digital filing cabinet of tasks?  Okay, you get my point.
-
-But here's the thing:  while Jira is essential for *organization*, it can feel like it was specifically designed to slow down *development*.  We're in our happy place with our favorite IDE open, knee-deep in Python or whatever programming language or stack you're using and then *BAM!* You forgot to create a Jira ticket for this new feature / task that you're already half way through. Now you're clicking through endless menus, copying and pasting issue keys, manually updating your issue description and scope, finding the right template, project to attach, etc.
+Don't get me wrong, Jira is *essential*. It's the backbone of project management. But here's the thing: while Jira is essential for *organization*, it can feel like it was specifically designed to slow down *development*. You're in your happy place with your favorite IDE open, knee-deep in Python or whatever programming language / stack you're using and then BAM! You forgot to create a Jira ticket for this new feature / task that you're already half way through. Now you're clicking through endless menus, copying and pasting issue keys, manually updating your issue description and scope, finding the right template, project to attach…
 
 ---
 
 ## The Programmer's dilemma
 
 As programmers, software engineers, and data scientists, our brains are wired for efficiency, for automation, for making computers do the tedious stuff so we can focus on the *interesting* stuff.  Jira, in its default, manual-task-loving state, often feels like the antithesis of everything we stand for.  Our typical Jira-induced woes include:
-
 
 
 -   **Jira Ticket Creation Pain:**  Your model completes a 12-hour training run. Celebration! Now comes the 15-minute Jira update ritual. Right click. Copy. Switch tabs. Paste. Repeat until carpal tunnel sets in.
@@ -48,7 +45,6 @@ As programmers, software engineers, and data scientists, our brains are wired fo
 
 
 `jiragen` is your friendly AI sidekick who'd love to write your own Jira tickets for you. It's designed to make your life easier by:
-
 
 -  **Automating repetitive Jira tasks:**  Think of it as your personal Jira AI assistant. Need to write a bunch of tickets based on your current codebase / documentation or already existing tickets? `jiragen` can handle it. Want to automatically upload and add components to that ticket? `jiragen` is on it.
 
@@ -66,8 +62,6 @@ pip install jiragen
 
 Boom!  You've just taken the first step towards Jira liberation.  (Okay, maybe 5% of the way, but every journey starts with a single `pip install`, right?)
 
-
-
 ## Configuration: Making Jiragen Your Own 🎛️
 
 Jiragen offers flexible configuration options through multiple channels:
@@ -78,7 +72,7 @@ Jiragen offers flexible configuration options through multiple channels:
 
 ### Setting Up Your Environment
 
-First, you'll need to configure your JIRA credentials and preferred LLM settings. Here's how:
+First, you'll need to configure your JIRA credentials and preferred LLM settings either by running `jiragen init` or by editing the `~/.jiragen/config.ini` file, or even by setting the environment variables.
 
 ```bash
 # Using environment variables
@@ -140,7 +134,6 @@ jiragen status --compact
 
 # Sync with JIRA
 jiragen fetch --types epics tickets
-
 ```
 
 
