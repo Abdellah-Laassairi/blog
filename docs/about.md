@@ -15,7 +15,7 @@ I'm Abdellah LAASSAIRI, a passionate data scientist / machine learning engineer 
 Feel free to reach out to me through:
 
 - GitHub: [Abdellah-Laassairi](https://github.com/Abdellah-Laassairi)
-- LinkedIn: [Profile](https://linkedin.com/in/abdellah-laassairi)
+- LinkedIn: [Profile](https://www.linkedin.com/in/abdellah-laassairii/)
 
 ## About This Blog
 
