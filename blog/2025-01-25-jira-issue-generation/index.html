@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+<meta content="mkdocs-1.6.1, mkdocs-terminal-4.7.0" name="generator"/>
+<meta content="Personal blog and portfolio" name="description"/>
+<meta content="Abdellah LAASSAIRI" name="author"/>
+<link href="https://abdellah-laassairi.github.io/blog/blog/2025-01-25-jira-issue-generation/" rel="canonical"/><link href="../../img/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png">
+<link href="../../img/android-chrome-512x512.png" rel="icon" sizes="512x512" type="image/png"/>
+<link href="../../img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="../../img/favicon.ico" rel="shortcut icon" sizes="48x48" type="image/png"/>
+<link href="../../img/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="../../img/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<title>Automating Jira with `jiragen` 🚀 - Abdellah LAASSAIRI</title>
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet"/>
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet"/>
+<link href="../../css/normalize.css" rel="stylesheet"/>
+<link href="../../css/terminal.css" rel="stylesheet"/>
+<link href="../../css/theme.css" rel="stylesheet"/>
+<link href="../../css/theme.tile_grid.css" rel="stylesheet"/>
+<link href="../../css/theme.footer.css" rel="stylesheet"/>
+<!-- gruvbox_dark color palette -->
+<link href="../../css/palettes/gruvbox_dark.css" rel="stylesheet"/>
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+<link href="https://cdn.jsdelivr.net/npm/xterm@5.1.0/css/xterm.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/blog.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/blog.min.css.map" rel="stylesheet"/>
+<link href="../../terminal/terminal.css" rel="stylesheet"/>
+<script defer="" src="../../terminal/terminal.js" type="module"></script>
+<script defer="" src="../../terminal/services/transformers-helper.js" type="module"></script>
+<script defer="" src="../../terminal/services/CommandProcessor.js" type="module"></script>
+<script defer="" src="../../terminal/services/ChatService.js" type="module"></script>
+<script defer="" src="../../terminal/config/chat-config.js" type="module"></script>
+<script defer="" src="../../terminal/config/terminal-config.js" type="module"></script>
+<script defer="" src="../../terminal/data/fileSystem.js" type="module"></script>
+<script defer="" src="../../terminal/utils/TextBuffer.js" type="module"></script><style>
+       .terminal-mkdocs-main-grid {
+           display: grid;
+           grid-template-columns: auto !important;
+           max-width: 100%;
+       }
+
+       #terminal-mkdocs-side-panel {
+           display: none !important;
+       }
+
+       #terminal-mkdocs-main-content {
+           width: 100% !important;
+           max-width: 100% !important;
+       }
+
+       h1 {
+           font-size: 2rem !important;
+           line-height: 1.2 !important;
+           margin-bottom: 1.5rem !important;
+           font-weight: 700 !important;
+       }
+
+       h2 {
+           font-size: 1.5rem !important;
+           line-height: 1.3 !important;
+           margin-top: 2.5rem !important;
+           margin-bottom: 1rem !important;
+           font-weight: 600 !important;
+       }
+
+       h3 {
+           font-size: 1.25rem !important;
+           line-height: 1.4 !important;
+           margin-top: 2rem !important;
+           margin-bottom: 0.75rem !important;
+           font-weight: 600 !important;
+       }
+
+       @media only screen and (min-width: 70em) {
+           .terminal-mkdocs-main-grid {
+               grid-template-columns: auto !important;
+           }
+       }
+   </style>
+<!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet"/>
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script defer="" src="../../js/jquery/jquery-1.10.1.min.js"></script>
+<script defer="" src="../../js/bootstrap/bootstrap.min.js"></script>
+<script defer="" src="../../js/mkdocs/base.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xterm@5.1.0/lib/xterm.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xterm-addon-web-links@0.8.0/lib/xterm-addon-web-links.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xterm-addon-search@0.11.0/lib/xterm-addon-search.min.js"></script>
+<script src="../../search/main.js"></script>
+</link><meta content="article" property="og:type"/><meta content="Automating Jira with `jiragen` 🚀 - Abdellah LAASSAIRI" property="og:title"/><meta content="Let's face it, Jira and data scientists have a complicated relationship.  But what if I told you there's a way to automate the Jira drudgery and get back to the fun stuff?  Enter `jiragen`!" property="og:description"/><meta content="Abdellah LAASSAIRI" property="og:site_name"/><meta content="en_US" property="og:locale"/><meta content="https://abdellah-laassairi.github.io/blog/blog/2025-01-25-jira-issue-generation/" property="og:url"/><meta content="summary" property="twitter:card"/><meta content="Automating Jira with `jiragen` 🚀 - Abdellah LAASSAIRI" property="twitter:title"/><meta content="Let's face it, Jira and data scientists have a complicated relationship.  But what if I told you there's a way to automate the Jira drudgery and get back to the fun stuff?  Enter `jiragen`!" property="twitter:description"/></head>
+<body class="terminal"><div class="container">
+<div class="terminal-nav">
+<header class="terminal-logo">
+<div class="logo terminal-prompt" id="mkdocs-terminal-site-name"><a class="no-style" href="https://abdellah-laassairi.github.io/blog/">Abdellah LAASSAIRI</a></div>
+</header>
+<nav class="terminal-menu">
+<ul typeof="BreadcrumbList" vocab="https://schema.org/">
+<li property="itemListElement" typeof="ListItem">
+<a class="menu-item" href="../.." property="item" typeof="WebPage">
+<span property="name">Home</span>
+</a>
+<meta content="0" property="position"/>
+</li>
+<li property="itemListElement" typeof="ListItem">
+<a class="menu-item" href="../" property="item" typeof="WebPage">
+<span property="name">Blog</span>
+</a>
+<meta content="1" property="position"/>
+</li>
+<li property="itemListElement" typeof="ListItem">
+<a class="menu-item" href="../../about/" property="item" typeof="WebPage">
+<span property="name">About</span>
+</a>
+<meta content="2" property="position"/>
+</li>
+<li property="itemListElement" typeof="ListItem">
+<a class="menu-item" data-target="#mkdocs_search_modal" data-toggle="modal" href="#" property="item" typeof="SearchAction">
+<i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+</a>
+<meta content="3" property="position"/>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class="container">
+<div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel">
+</aside>
+<main id="terminal-mkdocs-main-content">
+<section id="mkdocs-terminal-content">
+<!-- more -->
+<h1 id="taming-the-jira-beast-with-jiragen-automating-your-way-out-of-jira">Taming the Jira Beast with <code>jiragen</code> 🚀 -  Automating Your Way Out of Jira</h1>
+<p>For a lot of developers, software engineers, and data scientists, Jira can feel like that well-meaning but slightly overbearing relative who always shows up at the most inconvenient time.</p>
+<p><img alt="Jira Notification" src="/blog/img/posts/jira/jira-sin.png" style="border-radius: 10px;"/></p>
+<p>Don't get me wrong, Jira is <em>essential</em>. It's the backbone of project management. But here's the thing: while Jira is essential for <em>organization</em>, it can feel like it was specifically designed to slow down <em>development</em>. You're in your happy place with your favorite IDE open, knee-deep in Python or whatever programming language / stack you're using and then BAM! You forgot to create a Jira ticket for this new feature / task that you're already half way through. Now you're clicking through endless menus, copying and pasting issue keys, manually updating your issue description and scope, finding the right template, project to attach…</p>
+<hr/>
+<h2 id="the-programmers-dilemma">The Programmer's dilemma</h2>
+<p>As programmers, software engineers, and data scientists, our brains are wired for efficiency, for automation, for making computers do the tedious stuff so we can focus on the <em>interesting</em> stuff.  Jira, in its default, manual-task-loving state, often feels like the antithesis of everything we stand for.  Our typical Jira-induced woes include:</p>
+<ul>
+<li>
+<p><strong>Jira Ticket Creation Pain:</strong>  Your model completes a 12-hour training run. Celebration! Now comes the 15-minute Jira update ritual. Right click. Copy. Switch tabs. Paste. Repeat until carpal tunnel sets in.</p>
+</li>
+<li>
+<p><strong>The Context Switch Tax:</strong>  Every manual Jira interaction costs context switch action. Disturbing your <a href="https://azure.microsoft.com/en-us/blog/quantifying-the-impact-of-developer-experience/">flow state</a> and productivity. <a href="https://insights.sei.cmu.edu/blog/addressing-the-detrimental-effects-of-context-switching-with-devops/">Research</a> shows that developers lose up to 20% of productivity when juggling two tasks due to the mental effort of reorienting between contexts.</p>
+</li>
+<li>
+<p><strong>Jira Data Extraction - The CSV Black Hole:</strong>  "Oh, you want to analyze Jira data?  Sure, here's a CSV with 73 columns, 68 of which are completely irrelevant, and the 5 you actually need are buried somewhere in a JSON blob within a text field.  Enjoy!" 😈</p>
+</li>
+</ul>
+<h2 id="time-for-some-automation-with-jiragen">Time for some automation with <code>jiragen</code> ✨</h2>
+<p><code>jiragen</code> is your friendly AI sidekick who'd love to write your own Jira tickets for you. It's designed to make your life easier by:</p>
+<ul>
+<li><strong>Automating repetitive Jira tasks:</strong>  Think of it as your personal Jira AI assistant. Need to write a bunch of tickets based on your current codebase / documentation or already existing tickets? <code>jiragen</code> can handle it. Want to automatically upload and add components to that ticket? <code>jiragen</code> is on it.</li>
+</ul>
+<p><strong>Alright, Spill the Beans! How Do I Wield This <code>jiragen</code> Magic?</strong> 🤔
+Good question!  Getting started with <code>jiragen</code> is simpler than explaining the nuances of gradient boosting to your non-technical relatives at Thanksgiving dinner.  (Seriously, stick to "I work with computers" – trust me on this one.)</p>
+<hr/>
+<h2 id="installation-the-first-step-to-jira-freedom">Installation: The First Step to Jira Freedom</h2>
+<p>If you're reading this, you probably breathe Python.  So, installation will be a breeze:</p>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code>pip<span style="color: #F8F8F2"> </span>install<span style="color: #F8F8F2"> </span>jiragen
+</code></pre></div>
+<p>Boom!  You've just taken the first step towards Jira liberation.  (Okay, maybe 5% of the way, but every journey starts with a single <code>pip install</code>, right?)</p>
+<h2 id="configuration-making-jiragen-your-own">Configuration: Making Jiragen Your Own 🎛️</h2>
+<p>Jiragen offers flexible configuration options through multiple channels:</p>
+<ol>
+<li><strong>Command-line arguments</strong>: For quick, one-off customizations</li>
+<li><strong>Configuration file</strong> (<code>~/.jiragen/config.ini</code>): For persistent settings</li>
+<li><strong>Environment variables</strong>: For sensitive data and CI/CD pipelines</li>
+</ol>
+<h3 id="setting-up-your-environment">Setting Up Your Environment</h3>
+<p>First, you'll need to configure your JIRA credentials and preferred LLM settings either by running <code>jiragen init</code> or by editing the <code>~/.jiragen/config.ini</code> file, or even by setting the environment variables.</p>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #959077"># Using environment variables</span>
+<span style="color: #F8F8F2">export JIRA_API_TOKEN</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">"your-api-token"</span>
+<span style="color: #F8F8F2">export JIRA_EMAIL</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">"your-email@company.com"</span>
+<span style="color: #F8F8F2">export JIRA_URL</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">"https://your-company.atlassian.net"</span>
+
+<span style="color: #959077"># For OpenAI integration (optional)</span>
+<span style="color: #F8F8F2">export OPENAI_API_KEY</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">"your-openai-key"</span>
+</code></pre></div>
+<p>If you're using local models through Ollama (recommended for privacy), you can configure the LLM settings in your config file, or using the <code>--model</code> flag in the CLI.</p>
+<h2 id="cli-usage-your-swiss-army-knife-for-jira">CLI Usage: Your Swiss Army Knife for Jira 🔧</h2>
+<p>Let's explore some powerful CLI commands that will make your life easier:</p>
+<h3 id="1-codebase-management">1. Codebase Management</h3>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #959077"># Initialize jiragen in your project</span>
+jiragen<span style="color: #F8F8F2"> </span>init
+
+<span style="color: #959077"># Index your entire codebase (respects .gitignore)</span>
+jiragen<span style="color: #F8F8F2"> </span>add<span style="color: #F8F8F2"> </span>.
+
+<span style="color: #959077"># Add specific files or directories</span>
+jiragen<span style="color: #F8F8F2"> </span>add<span style="color: #F8F8F2"> </span>important.py<span style="color: #F8F8F2"> </span>README.md
+
+<span style="color: #959077"># Remove files from index</span>
+jiragen<span style="color: #F8F8F2"> </span>rm<span style="color: #F8F8F2"> </span>deprecated/
+</code></pre></div>
+<h3 id="2-issue-generation">2. Issue Generation</h3>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #959077"># Basic issue generation</span>
+jiragen<span style="color: #F8F8F2"> </span>generate<span style="color: #F8F8F2"> </span><span style="color: #E6DB74">"Implement user authentication flow"</span>
+
+<span style="color: #959077"># Generate with custom template</span>
+jiragen<span style="color: #F8F8F2"> </span>generate<span style="color: #F8F8F2"> </span><span style="color: #E6DB74">"Add rate limiting to API"</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">\</span>
+<span style="color: #F8F8F2">  </span>--template<span style="color: #F8F8F2"> </span>templates/feature.md<span style="color: #F8F8F2"> </span><span style="color: #AE81FF">\</span>
+<span style="color: #F8F8F2">  </span>--model<span style="color: #F8F8F2"> </span>ollama/phi4
+
+<span style="color: #959077"># Generate and directly upload to JIRA</span>
+jiragen<span style="color: #F8F8F2"> </span>generate<span style="color: #F8F8F2"> </span><span style="color: #E6DB74">"Fix memory leak in data processing"</span><span style="color: #F8F8F2"> </span>--upload<span style="color: #F8F8F2"> </span>--yes
+
+<span style="color: #959077"># Interactive mode with editor</span>
+jiragen<span style="color: #F8F8F2"> </span>generate<span style="color: #F8F8F2"> </span><span style="color: #E6DB74">"OAuth2 integration"</span><span style="color: #F8F8F2"> </span>--editor
+</code></pre></div>
+<h3 id="3-status-and-management">3. Status and Management</h3>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #959077"># View indexed files</span>
+jiragen<span style="color: #F8F8F2"> </span>status
+jiragen<span style="color: #F8F8F2"> </span>status<span style="color: #F8F8F2"> </span>--compact
+
+<span style="color: #959077"># Sync with JIRA</span>
+jiragen<span style="color: #F8F8F2"> </span>fetch<span style="color: #F8F8F2"> </span>--types<span style="color: #F8F8F2"> </span>epics<span style="color: #F8F8F2"> </span>tickets
+</code></pre></div>
+<h2 id="pro-tips">Pro Tips 💡</h2>
+<ol>
+<li><strong>Template Organization</strong>: Keep your templates organized in <code>~/.jiragen/templates/</code> for easy access:
+   <div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code>~/.jiragen/templates/
+├── feature.md
+├── bug.md
+├── epic.md
+└── subtask.md
+</code></pre></div></li>
+</ol>
+<h2 id="what-now">What now?</h2>
+<p>If you're tired of the Jira drudgery and want to inject some automation awesomeness into your programming / development /data science workflow, please, give <code>jiragen</code> a try!</p>
+<ul>
+<li><strong>Check out the documentation:</strong> <a href="https://abdellah-laassairi.github.io/jiragen/">here</a> for more detailed usage instructions and API reference.</li>
+</ul>
+<hr/>
+<p><em>Want to contribute or report issues? Check out our <a href="https://github.com/Abdellah-Laassairi/jiragen">GitHub repository</a>!</em></p>
+</section>
+<section id="mkdocs-terminal-after-content">
+</section>
+</main>
+</div>
+<hr/><p>Copyright © <span id="year"></span>, Abdellah LAASSAIRI</p>
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</div>
+<div aria-labelledby="searchModalLabel" aria-modal="true" class="modal" id="mkdocs_search_modal" role="alertdialog" tabindex="-1">
+<div class="modal-dialog modal-lg" role="search">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="searchModalLabel">Search</h5>
+<button class="close btn btn-default btn-ghost" data-dismiss="modal" type="button"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+</div>
+<div class="modal-body">
+<p id="searchInputLabel">Type to start searching</p>
+<form>
+<div class="form-group">
+<input aria-labelledby="searchInputLabel" class="form-control" id="mkdocs-search-query" placeholder="" title="Please enter search terms here" type="search"/>
+</div>
+</form>
+<div data-no-results-text="No document matches found" id="mkdocs-search-results"></div>
+</div>
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
