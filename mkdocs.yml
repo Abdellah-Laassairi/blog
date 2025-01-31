@@ -66,6 +66,11 @@ plugins:
       lang:
         - en
 
+extra:
+  analytics:
+    provider: google
+    property: G-F1GZ5J6TRT
+
 extra_css:
   - https://cdn.jsdelivr.net/npm/xterm@5.1.0/css/xterm.min.css
 
